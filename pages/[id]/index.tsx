@@ -14,7 +14,7 @@ export default function DetailPage({ data, paths }: PostDataType) {
     return { id: id, title: id };
   });
   useEffect(() => {
-    setNavList(result);
+    if (setNavList) setNavList(result);
   }, []);
 
   return (

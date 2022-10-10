@@ -6,6 +6,11 @@ export type PostDataType = {
     postData: string;
     title: string;
   };
+  paths: {
+    params: {
+      id: string;
+    };
+  }[];
 };
 
 export type NavType = { id: string; title: string };

@@ -15,7 +15,7 @@ export default function Layout({ children }: LayoutProps) {
     <Container>
       <Nav>
         {navList?.map((nav) => (
-          <Link href={`/${nav.id}`}>
+          <Link href={`/${nav.id}`} key={nav.id}>
             <a className={router.asPath === `/${nav.id}` ? "isNow" : ""}>
               {nav.title}
             </a>
