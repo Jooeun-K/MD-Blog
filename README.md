@@ -1,6 +1,7 @@
 # MD-Blog
 
-**Next.js로 정적 블로그 만들기 with Markdown**
+**Next.js로 정적 블로그 만들기 with Markdown**  
+[배포 링크](https://main--sparkly-cascaron-e302a3.netlify.app/)
 
 ## 작업하며 신경 쓴 부분
 
