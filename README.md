@@ -1,34 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MD-Blog
 
-## Getting Started
+**Next.js로 정적 블로그 만들기 with Markdown**
 
-First, run the development server:
+## 작업하며 신경 쓴 부분
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+1. fs, path 등의 nodejs 모듈은 서버에서만 실행이 가능하다. 해당 스크립트가 브라우저에서 렌더링 될 경우 오류가 발생하기 때문에 getStaticProps 내부에서 작동시켜야 한다.
+2. getStaticProps를 이용하는 경우 반드시 getStaticPaths를 사용해서 정적 페이지들의 경로를 설정해주어야 한다.
+3. 레이아웃 컴포넌트에서 존재하는 모든 포스트의 경로를 불러와 nav를 생성한다.
+   - \_app.tsx와 \_document.tsx에서는 getStaticProps, getStaticPaths 등을 사용할 수 없다.
+   - 로컬 페이지 영역에서 getStaticProps를 이용해 path 목록을 생성한 뒤 context-api에 담아주는 방식으로 nav를 만들었다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 아쉬운 부분 = 추후 보완점
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+1. 바빠서 스타일링은 전혀 건드리지 못한 점...
+2. 메인페이지를 list 형식으로 구현하고 싶었는데, 해당 부분은 건드리지 못한 점
+3. 포스트가 수십개 이상 된다고 가정했을 때 필요한 페이지네이션 등에 대한 고려를 하지 못한 점
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 참고한 링크
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+['fs' module not founc issue 관련 Next.js github 이슈](https://github.com/vercel/next.js/discussions/12124)  
+[Next.js 공식 문서](https://nextjs.org/docs/basic-features/data-fetching/get-static-paths)  
+[코드 유인원 - Next.js로 블로그 만들기](https://code-anthropoid.tistory.com/160)
